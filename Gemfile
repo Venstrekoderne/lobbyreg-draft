@@ -65,6 +65,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem "hotwire-livereload"
 end
 
 group :test do
@@ -73,3 +75,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+# Our app
+gem 'google-api-client', require: 'google/apis/calendar_v3'

@@ -1,0 +1,16 @@
+<div>
+  <h2 class="text-3xl mb-12">
+    Hvilke kalendre vil du hente fra?
+  </h2>
+
+  <ul>
+    <% @calendar_list&.items&.each do |calendar| %>
+      <li>
+        <%= link_to gcal_events_url calendar_id: calendar.id do %>
+          <%= calendar.summary %> (<%= calendar.id %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
