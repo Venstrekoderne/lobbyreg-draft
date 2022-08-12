@@ -60,7 +60,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # For testing:
-  config.hosts << "turkey.testing-calendar-integrations.c66.me"
+  config.hosts << "development-master.testing-calendar-integrations.c66.me"
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
