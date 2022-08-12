@@ -246,7 +246,7 @@ GEM
     sqlite3 (1.4.4)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
-    strscan (3.0.4)
+    strscan (3.0.1)
     tailwindcss-rails (2.0.12-arm64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.12-x86_64-linux)
