@@ -10,8 +10,16 @@ Rails.application.routes.draw do
   get '/google_oauth/list_calendars', to: 'google_oauth#list_calendars'
   get '/google_oauth/calendar/:calendar_id/events',
       to: 'google_oauth#list_events',
-      as: "gcal_events",
       calendar_id: /[^\/]+/ # Accept all characters except slashes for the id
+
+  get '/microsoft_oauth/connect', to: 'microsoft_oauth#connect'
+  get '/microsoft_oauth/redirect', to: 'microsoft_oauth#redirect'
+  get '/microsoft_oauth/callback', to: 'microsoft_oauth#callback'
+  get '/microsoft_oauth/list_calendars', to: 'microsoft_oauth#list_calendars'
+  get '/microsoft_oauth/calendar/:calendar_id/events',
+      to: 'microsoft_oauth#list_events',
+      calendar_id: /[^\/]+/ # Accept all characters except slashes for the id
+
 
   root "google_oauth#connect"
 end
