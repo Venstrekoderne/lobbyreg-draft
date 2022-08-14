@@ -1,0 +1,31 @@
+<details>
+  <summary>Detaljer</summary>
+  <%= debug @meeting %>
+</details>
+
+<div class="mt-12">
+  <h2 class="text-2xl font-bold block">Ny event - <%= @meeting.summary %></h2>
+  <h3 class="text-xl font-bold block">Beskrivelse: <span class="font-normal"><%= @meeting.description %></span></h3>
+  <h3 class="text-xl font-bold block">Deltakere: <span class="font-normal"><%= (@meeting.attendees.map { |x| "#{x.display_name} <#{x.email}>" }).join(", ") %></span></h3>
+
+  <div class="mt-4">
+    <details>
+      <summary>Ukjente personer</summary>
+
+      <% @unknown_people.each do |unknown_person| %>
+        <a class="block text-blue-500" href="<%= people_new_path(provider: :google, calendar_id: params[:calendar_id], event_id: params[:event_id], email: unknown_person.email, name: unknown_person.display_name) %>">
+          <%= unknown_person.display_name %> <%= "<#{unknown_person.email}>" %>
+        </a>
+      <% end %>
+    </details>
+  </div>
+  <div class="mt-4">
+    <details>
+      <summary>Kjente personer</summary>
+
+      <% @known_people.each do |known_person| %>
+        <%= known_person[:person].name %> <%= "<#{known_person[:email]}>" %>
+      <% end %>
+    </details>
+  </div>
+</div>

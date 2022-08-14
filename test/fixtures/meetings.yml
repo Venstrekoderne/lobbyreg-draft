@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: MyString
+  start_date: 2022-08-13 19:50:32
+  event_uid: MyString
+
+two:
+  subject: MyString
+  start_date: 2022-08-13 19:50:32
+  event_uid: MyString

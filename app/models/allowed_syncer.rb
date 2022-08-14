@@ -1,0 +1,2 @@
+class AllowedSyncer < ApplicationRecord
+end

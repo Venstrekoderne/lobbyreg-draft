@@ -78,4 +78,6 @@ end
 
 
 # Our app
-gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'google-api-client', require: ['google/apis/calendar_v3', 'google/apis/oauth2_v2']
+
+gem "sorcery", "~> 0.16.3"
