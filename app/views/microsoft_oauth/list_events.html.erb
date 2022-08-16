@@ -1,6 +1,6 @@
 <div>
   <h2 class="text-3xl mb-12">
-    Hendelser fra kalender <%= @calendar_name %>
+    Hendelser fra kalenderen "<%= @calendar_name %>"
   </h2>
 
   <ul>
@@ -8,7 +8,7 @@
       <li class="mb-6">
         <details>
           <summary>
-              <strong><%= event.summary %></strong> (<%= event.start&.date_time || event.start&.date %>)
+              <strong><%= event["subject"] %></strong> (<%= event["start"]["dateTime"] %>)
           </summary>
           <%= debug event %>
 
