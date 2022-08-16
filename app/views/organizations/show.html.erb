@@ -1,0 +1,23 @@
+<h1 class="text-3xl font-bold">
+  <%= @organization.name %>
+</h1>
+
+<hr class="my-12" />
+
+<h3 class="text-2xl">Siste 10 møter:</h3>
+<% @meetings.each do | meeting | %>
+  <li>
+    <%= link_to meeting.subject, meeting %>
+  </li>
+<% end %>
+
+<hr class="my-12" />
+<h3 class="text-2xl">Personer:</h3>
+
+<% @people.each do | person |  %>
+  <li>
+    <%= link_to person, class: "underline" do %>
+      <%= person.name %>
+    <% end %>
+  </li>
+<% end %>

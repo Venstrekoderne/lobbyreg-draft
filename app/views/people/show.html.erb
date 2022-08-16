@@ -1,0 +1,10 @@
+<%= @person.name %>
+<%= link_to @person.organization, class: "underline" do %>
+  <%= @person.organization.name %>
+<% end %>
+
+<% @meetings.each do | meeting | %>
+  <li>
+    <%= meeting.subject %>
+  </li>
+<% end %>

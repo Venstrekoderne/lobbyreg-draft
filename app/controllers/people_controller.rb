@@ -1,5 +1,14 @@
 class PeopleController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: :show
+
+  def show
+    person_id = params[:id]
+    @person = Person.includes(:organization).find(person_id)
+    @meetings = Meeting
+                  .joins(meeting_attendees: :person)
+                  .where(meeting_attendees: { person: person_id })
+                  .all
+  end
 
   def new
     @organizations = Organization.all

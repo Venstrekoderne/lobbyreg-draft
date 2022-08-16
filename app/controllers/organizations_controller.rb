@@ -1,5 +1,12 @@
 class OrganizationsController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: :show
+
+  def show
+    organization_id = params[:id]
+    @organization = Organization.find(organization_id)
+    @people = Person.all.last(10)
+    @meetings = Meeting.all.last(10)
+  end
 
   def new
     @organization = Organization.new
@@ -19,9 +26,6 @@ class OrganizationsController < ApplicationController
     rescue
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
   end
 
   private
