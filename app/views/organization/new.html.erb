@@ -1,0 +1,17 @@
+<%= form_with model: @organization, data: { turbo: false }, scope: :organization, url: organization_create_path do |form| %>
+  <% if @organization.errors.any? %>
+    <div class="mb-4">
+      <ul>
+        <% @organization.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="flex flex-col space-y-4">
+    <%= form.text_field :name, placeholder: "Navn" %>
+    <%= form.text_field :logo, placeholder: "Logo" %>
+    <%= form.text_field :email_domain, placeholder: "E-post domene" %>
+    <%= form.button "Lagre", class: "bg-blue-500 p-2 rounded-md text-white" %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with model: @person, data: { turbo: false }, scope: :person, url: people_create_path(provider: params[:provider], calendar_id: params[:calendar_id], event_id: params[:event_id], email: params[:email], name: params[:name]) do |form| %>
+  <% if @person.errors.any? %>
+    <div class="mb-4">
+      <ul>
+        <% @person.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="flex flex-col space-y-4">
+    <%= form.text_field :name, placeholder: "Navn", value: params[:name] %>
+    <%= form.text_field :email, placeholder: "E-post", value: params[:email] %>
+    <div>
+      Organisasjon (<a class="text-blue-500" target="_blank" href="<%= organization_create_path %>">Ny</a>)
+      <div class="flex flex-col space-y-2">
+        <% @organizations.each do |org| %>
+          <div>
+            <%= form.radio_button :organization, org.id %>
+            <%= form.label :organization, org.name, value: org.id %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= form.button "Lagre", class: "bg-blue-500 p-2 rounded-md text-white" %>
+  </div>
+<% end %>

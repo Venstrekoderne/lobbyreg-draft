@@ -13,6 +13,13 @@
   </head>
 
   <body>
+  <% if logged_in? %>
+    <div class="m-2">
+      Bruker: <%= session[:syncer_name] || current_user.email %>
+    </div>
+  <% end %>
+
+  </div>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
