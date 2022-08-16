@@ -4,7 +4,7 @@
   </h2>
 
   <ul>
-    <% @calendar_list&.items&.each do |calendar| %>
+    <% @calendar_list&.each do |calendar| %>
       <li>
         <%= link_to gcal_events_url calendar_id: calendar.id do %>
           <%= calendar.summary %> (<%= calendar.id %>)

@@ -1,5 +1,6 @@
-class MicrosoftOauthController < ApplicationController
+require 'httparty'
 
+class MicrosoftOauthController < ApplicationController
   def connect
   end
 
@@ -35,31 +36,26 @@ class MicrosoftOauthController < ApplicationController
   end
 
   def list_calendars
-    @calendar_list = get_calendars
+    calendars = graph_api_request_to "#{GRAPH_URL_BASE}/calendars"
+    @calendar_list = calendars["value"]
   end
 
   def list_events
-    service = authorized_calendar_service
     calendar_id = params[:calendar_id]
-    start_at = 1.year.ago
+    calendar = graph_api_request_to "#{GRAPH_URL_BASE}/calendars/#{calendar_id}"
+    events = graph_api_request_to "#{GRAPH_URL_BASE}/calendars/#{calendar_id}/events"
 
-    @calendar_name = service.get_calendar(calendar_id).summary
-    @event_list = service.list_events(calendar_id,
-                                      time_min: start_at.to_datetime.rfc3339)
+    @calendar_name = calendar["name"]
+    @event_list = events["value"]
   end
 
 
   private
 
-  def get_calendars
-    client = Signet::OAuth2::Client.new(client_options)
-    client.update!(session[:microsoft_calendar_authorization])
-    debugger
-  end
+  GRAPH_URL_BASE = "https://graph.microsoft.com/v1.0/me".freeze
 
   def authorized_calendar_service
   end
-
 
   def client_options
     {
@@ -70,5 +66,21 @@ class MicrosoftOauthController < ApplicationController
       scope: ["https://graph.microsoft.com/Calendars.Read", "https://graph.microsoft.com/Calendars.Read.Shared"],
       redirect_uri: microsoft_oauth_callback_url
     }
+  end
+
+  def graph_api_request_to url
+    # TODO: Validate token still works
+    token = session[:microsoft_calendar_authorization]["access_token"]
+
+    response = HTTParty.get(
+      url,
+      headers: {
+        Authorization: "Bearer #{token}"
+      }
+    )
+
+    return false unless response.code == 200
+
+    JSON.parse(response.body)
   end
 end

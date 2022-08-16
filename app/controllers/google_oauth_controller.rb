@@ -21,7 +21,7 @@ class GoogleOauthController < ApplicationController
 
   def list_calendars
     service = authorized_calendar_service
-    @calendar_list = service.list_calendar_lists
+    @calendar_list = service.list_calendar_lists&.items
   end
 
   def list_events
@@ -31,7 +31,7 @@ class GoogleOauthController < ApplicationController
 
     @calendar_name = service.get_calendar(calendar_id).summary
     @event_list = service.list_events(calendar_id,
-                                      time_min: start_at.to_datetime.rfc3339)
+                                      time_min: start_at.to_datetime.rfc3339)&.items
   end
 
 

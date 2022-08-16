@@ -80,3 +80,4 @@ end
 # Our app
 gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'activerecord-session_store'
+gem "httparty"
