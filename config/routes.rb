@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/people/new', to: 'people#new'
   post '/people/new', to: 'people#create', as: :people_create
 
-  get '/organization/new', to: 'organization#new'
-  post '/organization/new', to: 'organization#create', as: :organization_create
+  get '/organizations/new', to: 'organizations#new'
+  post '/organizations/new', to: 'organizations#create', as: :organization_create
 
   get '/google_oauth/connect', to: 'google_oauth#connect'
   get '/google_oauth/redirect', to: 'google_oauth#redirect'
