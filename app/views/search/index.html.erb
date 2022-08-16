@@ -1,13 +1,55 @@
 
-<div class="border rounded-lg bg-green-100 p-4">
-  <h2 class="text-3xl mb-4">
+<div class="shadow-xl rounded-lg bg-green-100 p-8">
+  <h2 class="text-3xl mb-6">
     Test kalenderintegrasjon her:
   </h2>
-  <%= link_to :google_oauth_redirect, class: "rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" do %>
-    Test Google Calendar
+  <%= link_to :google_oauth_redirect, class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium hover:shadow-lg" do %>
+    Google Calendar
   <% end %>
 
-  <%= link_to :microsoft_oauth_redirect, class: "rounded-lg py-3 px-5 bg-blue-100 inline-block font-medium" do %>
-    Test Microsoft Calendar
+  <%= link_to :microsoft_oauth_redirect, class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium hover:shadow-lg" do %>
+    Microsoft Calendar
   <% end %>
 </div>
+
+<div class="my-12">
+  <h3 class="text-xl mb-6">10 siste møter</h3>
+  <ul>
+    <% @meetings.each do | meeting | %>
+      <li class="mb-3 text-blue-500 underline">
+        <%= link_to meeting do %>
+          <%= meeting.subject %> - <%= meeting.start_date %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div class="my-12">
+  <h3 class="text-xl mb-6">Organisasjoner:</h3>
+  <ul>
+    <% @organizations.each do | organization | %>
+      <li class="mb-3 text-blue-500 underline">
+        <%= link_to organization do %>
+          <%= organization.logo %> <%= organization.name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div class="my-12">
+  <h3 class="text-xl mb-6">Personer:</h3>
+  <ul>
+    <% @people.each do | person | %>
+      <li class="mb-3 text-blue-500 underline">
+        <%= link_to person do %>
+          <%= person.name %> (<%= person.organization.name %>)
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
