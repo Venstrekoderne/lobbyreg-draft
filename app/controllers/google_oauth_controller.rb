@@ -17,7 +17,10 @@ class GoogleOauthController < ApplicationController
     oauth2_service = authorized_userinfo_service response
     userinfo = oauth2_service.get_userinfo
 
-    allowed_syncer = AllowedSyncer.find_by(email: userinfo.email)
+    # TODO: Limit allowed syncers with some smart rule to only allow people from the organizations we trust.
+    # For now, just keep it open and auto register everyone
+    allowed_syncer = AllowedSyncer.find_or_create_by(email: userinfo.email)
+
     if allowed_syncer.nil?
       render :forbidden and return
     end
