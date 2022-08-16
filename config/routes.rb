@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root "google_oauth#connect"
 
-  get '/people/new', to: 'person#new'
-  post '/people/new', to: 'person#create', as: :people_create
+  get '/people/new', to: 'people#new'
+  post '/people/new', to: 'people#create', as: :people_create
 
   get '/organization/new', to: 'organization#new'
   post '/organization/new', to: 'organization#create', as: :organization_create
