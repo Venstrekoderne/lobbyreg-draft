@@ -59,6 +59,9 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # For testing:
+  config.hosts << "development-master.testing-calendar-integrations.c66.me"
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
