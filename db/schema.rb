@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_13_175759) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_074650) do
   create_table "allowed_syncers", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -72,13 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_175759) do
     t.index ["organization_id"], name: "index_people_on_organization_id"
   end
 
-  add_foreign_key "emails", "people"
-  add_foreign_key "meeting_attendees", "emails"
-  add_foreign_key "meeting_attendees", "organizations"
-  add_foreign_key "meeting_attendees", "people"
-  add_foreign_key "organization_email_mappings", "organizations"
-  add_foreign_key "people", "organizations"
-
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -87,4 +80,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_175759) do
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
+
+  add_foreign_key "emails", "people"
+  add_foreign_key "meeting_attendees", "emails"
+  add_foreign_key "meeting_attendees", "organizations"
+  add_foreign_key "meeting_attendees", "people"
+  add_foreign_key "organization_email_mappings", "organizations"
+  add_foreign_key "people", "organizations"
 end
