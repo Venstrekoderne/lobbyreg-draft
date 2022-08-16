@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_16_074650) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_16_123630) do
   create_table "allowed_syncers", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_074650) do
     t.integer "organization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "meeting_id"
     t.index ["email_id"], name: "index_meeting_attendees_on_email_id"
     t.index ["organization_id"], name: "index_meeting_attendees_on_organization_id"
     t.index ["person_id"], name: "index_meeting_attendees_on_person_id"
@@ -83,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_074650) do
 
   add_foreign_key "emails", "people"
   add_foreign_key "meeting_attendees", "emails"
+  add_foreign_key "meeting_attendees", "meetings"
   add_foreign_key "meeting_attendees", "organizations"
   add_foreign_key "meeting_attendees", "people"
   add_foreign_key "organization_email_mappings", "organizations"
