@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "google_oauth#connect"
+
+  get '/people/new', to: 'person#new'
+  post '/people/new', to: 'person#create', as: :people_create
+
+  get '/organization/new', to: 'organization#new'
+  post '/organization/new', to: 'organization#create', as: :organization_create
 
   get '/google_oauth/connect', to: 'google_oauth#connect'
   get '/google_oauth/redirect', to: 'google_oauth#redirect'
@@ -10,8 +15,8 @@ Rails.application.routes.draw do
   get '/google_oauth/list_calendars', to: 'google_oauth#list_calendars'
   get '/google_oauth/calendar/:calendar_id/events',
       to: 'google_oauth#list_events',
-      as: "gcal_events",
-      calendar_id: /[^\/]+/ # Accept all characters except slashes for the id
+      calendar_id: /[^\/]+/, # Accept all characters except slashes for the id
+      as: 'gcal_events'
   get '/google_oauth/calendar/:calendar_id/events/:event_id/new',
       to: 'google_oauth#new_event',
       as: "new_gcal_event",
@@ -23,11 +28,12 @@ Rails.application.routes.draw do
       calendar_id: /[^\/]+/, # Accept all characters except slashes for the id
       event_id: /[^\/]+/ # Accept all characters except slashes for the id
 
-  get '/people/new', to: 'person#new'
-  post '/people/new', to: 'person#create', as: :people_create
-
-  get '/organization/new', to: 'organization#new'
-  post '/organization/new', to: 'organization#create', as: :organization_create
-
-  root "google_oauth#connect"
+  get '/microsoft_oauth/connect', to: 'microsoft_oauth#connect'
+  get '/microsoft_oauth/redirect', to: 'microsoft_oauth#redirect'
+  get '/microsoft_oauth/callback', to: 'microsoft_oauth#callback'
+  get '/microsoft_oauth/list_calendars', to: 'microsoft_oauth#list_calendars'
+  get '/microsoft_oauth/calendar/:calendar_id/events',
+      to: 'microsoft_oauth#list_events',
+      calendar_id: /[^\/]+/, # Accept all characters except slashes for the id
+      as: 'microsoft_events'
 end

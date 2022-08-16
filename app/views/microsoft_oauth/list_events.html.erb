@@ -1,0 +1,20 @@
+<div>
+  <h2 class="text-3xl mb-12">
+    Hendelser fra kalenderen "<%= @calendar_name %>"
+  </h2>
+
+  <ul>
+    <% @event_list&.each do |event| %>
+      <li class="mb-6">
+        <details>
+          <summary>
+              <strong><%= event["subject"] %></strong> (<%= event["start"]["dateTime"] %>)
+          </summary>
+          <%= debug event %>
+
+        </details>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

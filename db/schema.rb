@@ -78,4 +78,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_13_175759) do
   add_foreign_key "meeting_attendees", "people"
   add_foreign_key "organization_email_mappings", "organizations"
   add_foreign_key "people", "organizations"
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
 end

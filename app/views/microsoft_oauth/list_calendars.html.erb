@@ -6,8 +6,8 @@
   <ul>
     <% @calendar_list&.each do |calendar| %>
       <li>
-        <%= link_to gcal_events_url calendar_id: calendar.id do %>
-          <%= calendar.summary %> (<%= calendar.id %>)
+        <%= link_to microsoft_events_url calendar_id: calendar["id"] do %>
+          <%=  calendar["name"] %> (<%=  calendar["id"] %>)
         <% end %>
       </li>
     <% end %>
