@@ -21,6 +21,9 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
   def organization_params
     params.require(:organization).permit(:name, :logo, :email_domain)

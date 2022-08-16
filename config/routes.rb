@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root "search#index"
 
-  get '/people/new', to: 'people#new'
-  post '/people/new', to: 'people#create', as: :people_create
+  resources :people
+  #  get '/people/new', to: 'people#new'
+  #post '/people/new', to: 'people#create', as: :people_create
 
   get '/organizations/new', to: 'organizations#new'
   post '/organizations/new', to: 'organizations#create', as: :organization_create
