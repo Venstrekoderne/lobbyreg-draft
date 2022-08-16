@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  root "google_oauth#connect"
+  root "search#index"
 
   get '/people/new', to: 'people#new'
   post '/people/new', to: 'people#create', as: :people_create
