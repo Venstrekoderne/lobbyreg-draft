@@ -13,7 +13,16 @@
       <summary>Ukjente personer</summary>
 
       <% @unknown_people.each do |unknown_person| %>
-        <a class="block text-blue-500" href="<%= people_new_path(provider: :google, calendar_id: params[:calendar_id], event_id: params[:event_id], email: unknown_person.email, name: unknown_person.display_name) %>">
+        <a 
+          class="block text-blue-500"
+          href="<%=
+            new_person_path(
+              provider: :google,
+              calendar_id: params[:calendar_id],
+              event_id: params[:event_id],
+              email: unknown_person.email,
+              name: unknown_person.display_name)
+          %>">
           <%= unknown_person.display_name %> <%= "<#{unknown_person.email}>" %>
         </a>
       <% end %>
