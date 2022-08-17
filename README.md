@@ -16,7 +16,7 @@ Enkelt søk og filtrering, med mulighet for å se hvilke aktører som møter hve
 ### Enkeltmøter
 ![image](https://user-images.githubusercontent.com/14905290/185115441-7f7be7da-4f2c-4969-b4ee-e79c418a4e1c.png)
 
-Se hvem som deltok i møtet, hvem de representerte, og hva som var tema. Her kan det være noen vi ikke hvet hvem er, som markeres med "ukjent".
+Se hvem som deltok i møtet, hvem de representerte, og hva som var tema. Vi loggfører hvem som deltok utifra e-post-adressene deres. Her kan det være noen vi ikke vet hvem er, som markeres med "ukjent" - og andre som vi vet hvilken organisasjon de tilhører (typisk gjennom domenet i e-posten, f.eks. @nho.no) men ikke hvem de er.
 
 ### Representanter, organisasjoner og lobbyister
 ![image](https://user-images.githubusercontent.com/14905290/185115389-04954bac-ab75-4a44-9f84-037f4cd7b0a7.png)
