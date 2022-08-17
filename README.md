@@ -2,7 +2,7 @@
 
 Vi jobber for å få plass et felles lobbyregister for alle partier som ønsker delta. 
 
-Koden vil lanseres som åpen og fri kildekode under AGPL og være tilgjengelig for alle som ønsker forbedre, videreutvikle, eller hoste selv under samme vilkår.
+Koden vil lanseres som åpen og fri kildekode under AGPL og være tilgjengelig for alle som ønsker forbedre, videreutvikle, eller sette opp sin egen versjon under samme vilkår.
 
 Ønsker du hjelpe til? Ta kontakt med oss på daniel.jackson@venstre.no - du er velkommen uavhengig av partibakgrunn. Vi vil bygge noe som alle partiene kan bruke.
 
