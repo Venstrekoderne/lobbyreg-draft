@@ -47,24 +47,24 @@ class GoogleOauthController < ApplicationController
                                       time_min: start_at.to_datetime.rfc3339)&.items
   end
 
-  def new_event
+  def new_meeting
     service = authorized_calendar_service
     calendar_id = params[:calendar_id]
     event_id = params[:event_id]
 
-    @meeting = service.get_event(calendar_id, event_id)
-    if @meeting.nil?
+    @event = service.get_event(calendar_id, event_id)
+    if @event.nil?
       render :event_not_found
     end
 
-    @unknown_people = @meeting.attendees
+    @unknown_people = @event.attendees
                               .map { |x|
                                 if Email.find_by(email_address: x.email).nil?
                                   x
                                 end
                               }
                               .filter { |x| !x.nil? }
-    @known_people = @meeting.attendees
+    @known_people = @event.attendees
                               .map { |x|
                                 email = Email.find_by(email_address: x.email)
                                 unless email.nil?
@@ -72,6 +72,7 @@ class GoogleOauthController < ApplicationController
                                 end
                               }
                               .filter { |x| !x.nil? }
+    render "meetings/new"
   end
 
 

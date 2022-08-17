@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root "search#index"
 
+  resources :meetings
+
   resources :people
   #  get '/people/new', to: 'people#new'
   #post '/people/new', to: 'people#create', as: :people_create
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
       calendar_id: /[^\/]+/, # Accept all characters except slashes for the id
       as: 'gcal_events'
   get '/google_oauth/calendar/:calendar_id/events/:event_id/new',
-      to: 'google_oauth#new_event',
+      to: 'google_oauth#new_meeting',
       as: "new_gcal_event",
       calendar_id: /[^\/]+/, # Accept all characters except slashes for the id
       event_id: /[^\/]+/ # Accept all characters except slashes for the id

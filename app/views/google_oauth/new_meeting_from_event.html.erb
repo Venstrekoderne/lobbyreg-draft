@@ -1,12 +1,12 @@
 <details>
   <summary>Detaljer</summary>
-  <%= debug @meeting %>
+  <%= debug @event %>
 </details>
 
 <div class="mt-12">
-  <h2 class="text-2xl font-bold block">Ny event - <%= @meeting.summary %></h2>
-  <h3 class="text-xl font-bold block">Beskrivelse: <span class="font-normal"><%= @meeting.description %></span></h3>
-  <h3 class="text-xl font-bold block">Deltakere: <span class="font-normal"><%= (@meeting.attendees.map { |x| "#{x.display_name} <#{x.email}>" }).join(", ") %></span></h3>
+  <h2 class="text-2xl font-bold block">Ny event - <%= @event.summary %></h2>
+  <h3 class="text-xl font-bold block">Beskrivelse: <span class="font-normal"><%= @event.description %></span></h3>
+  <h3 class="text-xl font-bold block">Deltakere: <span class="font-normal"><%= (@event.attendees.map { |x| "#{x.display_name} <#{x.email}>" }).join(", ") %></span></h3>
 
   <div class="mt-4">
     <details>

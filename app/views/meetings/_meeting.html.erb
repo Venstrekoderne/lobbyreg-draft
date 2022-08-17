@@ -1,0 +1,22 @@
+<div id="<%= dom_id meeting %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Subject:</strong>
+    <%= meeting.subject %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Start date:</strong>
+    <%= meeting.start_date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Event uid:</strong>
+    <%= meeting.event_uid %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this meeting", meeting, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this meeting', edit_meeting_path(meeting), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
