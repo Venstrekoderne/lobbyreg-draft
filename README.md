@@ -6,6 +6,10 @@ Koden vil lanseres som åpen og fri kildekode under AGPL og være tilgjengelig f
 
 Ønsker du hjelpe til? Ta kontakt med oss på daniel.jackson@venstre.no - du er velkommen uavhengig av partibakgrunn. Vi vil bygge noe som alle partiene kan bruke.
 
+## Status
+
+Denne kildekoden er høyst ustabil og under utvikling. Det er sannsynlig at alt forandres på kort tid.
+
 ## Screenshots av tenkt løsning: 
 
 ### Søk og filtrering
