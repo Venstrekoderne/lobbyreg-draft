@@ -1,4 +1,4 @@
-require 'httparty'
+require "httparty"
 
 class MicrosoftOauthController < ApplicationController
   def connect
@@ -48,7 +48,6 @@ class MicrosoftOauthController < ApplicationController
     @calendar_name = calendar["name"]
     @event_list = events["value"]
   end
-
 
   private
 

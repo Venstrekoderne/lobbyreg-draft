@@ -17,7 +17,7 @@ class OrganizationsController < ApplicationController
     begin
       @organization.transaction do
         email_domain = organization_params[:email_domain]
-        unless email_domain.nil? or email_domain.empty?
+        unless email_domain.nil? || email_domain.empty?
           regex_str = "@#{Regexp.escape(organization_params[:email_domain])}$"
           OrganizationEmailMapping.create(regex: regex_str, organization: @organization)
         end
@@ -29,6 +29,7 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
   def organization_params
     params.require(:organization).permit(:name, :logo, :email_domain)
   end

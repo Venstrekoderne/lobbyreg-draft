@@ -5,9 +5,9 @@ class PeopleController < ApplicationController
     person_id = params[:id]
     @person = Person.includes(:organization).find(person_id)
     @meetings = Meeting
-                  .joins(meeting_attendees: :person)
-                  .where(meeting_attendees: { person: person_id })
-                  .all
+      .joins(meeting_attendees: :person)
+      .where(meeting_attendees: {person: person_id})
+      .all
   end
 
   def new
@@ -39,6 +39,7 @@ class PeopleController < ApplicationController
   end
 
   private
+
   def person_params
     params.require(:person).permit(:name, :email, :organization)
   end
